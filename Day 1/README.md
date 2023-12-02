@@ -2,7 +2,7 @@
 https://adventofcode.com/2023/day/1
 
 In part 1 of the problem we are trying to take the first and last digit in a string to form a single two digit number (10-99)
-Steps to take:
+Steps to solve:
 - Remove all non-digits from string/Find all digits from string
 - Take the digits that appear first and last (e.g 12345 = 15)
 - "Combine" (not add) those two digits together
@@ -15,10 +15,36 @@ What I learned:
 - \[Rust\] Signed vs Unsigned interger types
     - https://doc.rust-lang.org/book/ch03-02-data-types.html
 - \[Rust\] .iter() and reversing strings
+- \[Rust\] Mutable variables and Vectors
 
 What I can improve:
 
 Extra:
+
+
+In part 2, we are still trying to take the first and last digit in the string. The twist is the first or last digit could be spelled out with letters `one`, `two`, `three`, `four`, `five`, `six`, `seven`, `eight`, and `nine`.
+Steps to solve:
+- Use regex to separate letters & digits
+- Take the first and last item of the regex vector
+- Combine them together and take the sum of the vector
+
+Extra:
+Ran into some issues with regex that increased my answer by 26 points with a total of 21 incorrect lines.
+When running regex it doesn't take into account 2 digit letters over lapping each other:
+```
+Text: 8ghsxbzoneightg
+Regex: ["8", "one"]
+Generated -> Correct: 81 -> 88
+---
+Text: lnmqnine855four17twoeightwolx
+Regex: ["nine", "8", "5", "5", "four", "1", "7", "two", "eight"]
+Generated -> Correct: 98 -> 92
+```
+https://stackoverflow.com/questions/11430863/how-to-find-overlapping-matches-with-a-regexp
+Python has a lookahead assertion to allow overlapping, however, rust regex does not
+```
+error: look-around, including look-ahead and look-behind, is not supported
+```
 
 
 ## setting up c#

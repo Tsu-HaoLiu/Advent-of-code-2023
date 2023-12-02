@@ -35,30 +35,33 @@ fn main() {
 }
 
 fn part1(input: Vec<String>) {
+    // Vector to store final results of each row
     let mut result: Vec<u32> = Vec::new();
 
+    // Iterate through each line
     for cryp_text in input.iter() {
         // println!("{:?}", cryp_text);
+
+        // Mutable string to store two digit number
         let mut digit_string: String = String::new();
 
+        // Finds the first instance of a digit and push to String.
         for text in cryp_text.chars() {
-            if text.is_digit(10) {
-                // println!("{}", text);
+            if text.is_digit(10) { // Checks if a char is a digit in the given radix.
                 digit_string.push_str(text.to_string().as_str());
                 break;
             }
         }
 
+        // Reverse, then finds the "first" instance of a digit and push to String.
         for text in cryp_text.chars().rev().collect::<String>().chars() {
-            if text.is_digit(10) {
-                // println!("{}", text);
+            if text.is_digit(10) {// Checks if a char is a digit in the given radix.
                 digit_string.push_str(text.to_string().as_str());
                 break;
             }
         }
-
+        // combined first and last digit into an u32 int, push to vector
         result.push(digit_string.parse::<u32>().unwrap());
-
     }
 
     // println!("{:?}", result);
