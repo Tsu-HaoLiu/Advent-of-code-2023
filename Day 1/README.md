@@ -21,7 +21,7 @@ What I can improve:
 
 Extra:
 
-
+## Part 2
 In part 2, we are still trying to take the first and last digit in the string. The twist is the first or last digit could be spelled out with letters `one`, `two`, `three`, `four`, `five`, `six`, `seven`, `eight`, and `nine`.
 Steps to solve:
 - Use regex to separate letters & digits
