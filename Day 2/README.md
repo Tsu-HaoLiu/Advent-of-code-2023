@@ -26,6 +26,20 @@ Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
 ```
 
 
+### Part 2
+
+In part 2 we are still looking to at the same problem with a small twist. For each game (row) we are looking for the fewest number of cubes of each color that could make the game possible.
+
+```
+Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+Maximum: 4 red, 2 green, 6 blue
+```
+
+Steps to solve:
+- Every iteration of pulls, we want to take the maximum amount for each color available. 
+- Multiple them together and add them to the total
+
+
 ## setting up c#
 ```
 dotnet new 
